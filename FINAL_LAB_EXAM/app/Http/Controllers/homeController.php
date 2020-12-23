@@ -31,4 +31,72 @@ class homeController extends Controller
                         ->get();
         return view('employeer.userlist', compact('users'));
     }
+
+    public function create()
+    {
+        return view('employeer.create');
+    }
+
+    public function verifyCreate(Request $req)
+    {
+        $req->validate([
+            'name' => 'required',
+            'username' => 'required',
+            'password' => 'required',
+            'contact' => 'required',
+            'companyName' => 'required'
+        ]);
+
+        $user = new User();
+
+        $user->name = $req->name;
+        $user->username = $req->username;
+        $user->password = $req->password;
+        $user->contact = $req->contact;
+        $user->companyName = $req->companyName;
+
+        if ($user->save()) {
+            return redirect()->route('user.userlist');
+        } else {
+            return back();
+        }
+    }
+
+    public function edit($id)
+    {
+        $user = User::find($id);
+        return view('employeer.edit', compact('user'));
+    }
+
+    public function verifyEdit($id, Request $req)
+    {
+        $req->validate([
+            'name' => 'required',
+            'username' => 'required',
+            'password' => 'required',
+            'contact' => 'required',
+            'companyName' => 'required'
+        ]);
+
+        $user = User::find($id);
+        $user->name = $req->name;
+        $user->username = $req->username;
+        $user->password = $req->password;
+        $user->contact = $req->contact;
+        $user->companyName = $req->companyName;
+
+        if ($user->save()) {
+            return redirect()->route('user.userlist');
+        } else {
+            return back();
+        }
+    }
+
+
+    public function delete($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->route('user.userlist');
+    }
 }

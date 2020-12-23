@@ -28,3 +28,10 @@ Route::get('/userlist',  [homeController::class, 'userlist'])->name('user.userli
 Route::post('/userlist',  [homeController::class, 'search'])->name('user.search');
 Route::get('/user/{id}',  [homeController::class, 'detail'])->name('user.detail');
 
+Route::get('/create',  [homeController::class, 'create'])->name('user.create');
+Route::post('/create',  [homeController::class, 'verifyCreate']);
+
+Route::get('/user/edit/{id}',  [homeController::class, 'edit'])->name('user.edit');
+Route::post('/user/edit/{id}',  [homeController::class, 'verifyEdit']);
+
+Route::get('/user/delete/{id}',  [homeController::class, 'delete'])->name('user.delete');

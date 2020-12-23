@@ -45,8 +45,8 @@
 
 			<td>
 				<a href="{{ route('user.detail', $users[$i]['id']) }}">Detail</a> |
-				<a href="">Edit</a>
-				<a href="">Delete</a>
+				<a href="{{ route('user.edit', $users[$i]['id']) }}">Edit</a>
+				<a href="{{ route('user.delete', $users[$i]['id']) }}">Delete</a>
 			</td>
 
 			</tr>
