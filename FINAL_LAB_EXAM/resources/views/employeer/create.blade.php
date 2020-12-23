@@ -8,7 +8,7 @@
 <body>
 
     <h3>Create User</h3>
-    <a href="{{route('user.userlist')}}">Back</a> |
+    <a href="{{route('home.index')}}">Back</a> |
     <a href="/logout">logout</a>
 
     <br>

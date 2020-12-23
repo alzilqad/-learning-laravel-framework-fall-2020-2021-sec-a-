@@ -8,7 +8,7 @@
 <body>
 
     <h3>Create job</h3>
-    <a href="{{route('job.joblist')}}">Back</a> |
+    <a href="{{route('home.indexg')}}">Back</a> |
     <a href="/logout">logout</a>
 
     <br>
