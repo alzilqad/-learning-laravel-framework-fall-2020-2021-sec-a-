@@ -44,7 +44,7 @@
 			<td>{{$users[$i]['type']}}</td>
 
 			<td>
-				<a href="">Detail</a> |
+				<a href="{{ route('user.detail', $users[$i]['id']) }}">Detail</a> |
 				<a href="">Edit</a>
 				<a href="">Delete</a>
 			</td>

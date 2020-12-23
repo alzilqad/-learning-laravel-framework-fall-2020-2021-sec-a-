@@ -26,4 +26,5 @@ Route::get('/logout', [logoutController::class, 'index'])->name('logout.index');
 Route::get('/home', [homeController::class, 'index'])->name('home.index');
 Route::get('/userlist',  [homeController::class, 'userlist'])->name('user.userlist');
 Route::post('/userlist',  [homeController::class, 'search'])->name('user.search');
+Route::get('/user/{id}',  [homeController::class, 'detail'])->name('user.detail');
 

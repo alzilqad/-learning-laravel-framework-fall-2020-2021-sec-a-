@@ -18,6 +18,12 @@ class homeController extends Controller
         return view('employeer.userlist', compact('users'));
     }
 
+    public function detail($id)
+    {
+        $user = User::find($id);
+        return view('employeer.detail', compact('user'));
+    }
+
     public function search(Request $req)
     {
         $term = $req->input;
