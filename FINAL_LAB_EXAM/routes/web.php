@@ -35,3 +35,10 @@ Route::get('/user/edit/{id}',  [homeController::class, 'edit'])->name('user.edit
 Route::post('/user/edit/{id}',  [homeController::class, 'verifyEdit']);
 
 Route::get('/user/delete/{id}',  [homeController::class, 'delete'])->name('user.delete');
+
+
+
+Route::get('/joblist',  [homeController::class, 'joblist'])->name('job.joblist');
+Route::post('/joblist',  [homeController::class, 'jobsearch'])->name('job.search');
+Route::get('/job/{id}',  [homeController::class, 'jobdetail'])->name('job.detail');
+

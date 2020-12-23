@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Job;
 
 class homeController extends Controller
 {
@@ -98,5 +99,28 @@ class homeController extends Controller
         $user = User::find($id);
         $user->delete();
         return redirect()->route('user.userlist');
+    }
+
+
+
+
+    public function joblist()
+    {
+        $jobs  = Job::all();
+        return view('job.joblist', compact('jobs'));
+    }
+
+    public function jobdetail($id)
+    {
+        $job = Job::find($id);
+        return view('job.detail', compact('job'));
+    }
+
+    public function jobsearch(Request $req)
+    {
+        $term = $req->input;
+        $jobs= Job::where('jobTitle', 'LIKE', '%' . $term . '%')
+                        ->get();
+        return view('job.joblist', compact('jobs'));
     }
 }
