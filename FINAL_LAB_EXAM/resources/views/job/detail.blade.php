@@ -15,7 +15,7 @@
     <br>
 
     <fieldset>
-        <legend>User Details</legend>
+        <legend>Job Details</legend>
         <table>
             <tr>
                 <td>Title</td>

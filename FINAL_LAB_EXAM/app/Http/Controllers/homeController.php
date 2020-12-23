@@ -152,4 +152,40 @@ class homeController extends Controller
             return back();
         }
     }
+
+    public function jobedit($id)
+    {
+        $job = Job::find($id);
+        return view('job.edit', compact('job'));
+    }
+
+    public function jobverifyEdit($id, Request $req)
+    {
+        $req->validate([
+            'jobTitle' => 'required',
+            'companyName' => 'required',
+            'jobLocation' => 'required',
+            'salary' => 'required',
+        ]);
+
+        $job = Job::find($id);
+        $job->jobTitle = $req->jobTitle;
+        $job->companyName = $req->companyName;
+        $job->jobLocation = $req->jobLocation;
+        $job->salary = $req->salary;
+
+        if ($job->save()) {
+            return redirect()->route('job.joblist');
+        } else {
+            return back();
+        }
+    }
+
+
+    public function jobdelete($id)
+    {
+        $job = Job::find($id);
+        $job->delete();
+        return redirect()->route('job.joblist');
+    }
 }

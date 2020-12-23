@@ -30,6 +30,7 @@
 			<td>COMPANY</td>
 			<td>LOCATION</td>
 			<td>SALARY</td>
+			<td>ACTIONS</td>
 		</tr>
 
 		@for($i=0; $i < count($jobs); $i++) <tr>
@@ -37,10 +38,11 @@
 			<td>{{$jobs[$i]['companyName']}}</td>
 			<td>{{$jobs[$i]['jobLocation']}}</td>
 			<td>{{$jobs[$i]['salary']}}</td>
+			
 			<td>
 				<a href="{{ route('job.detail', $jobs[$i]['id']) }}">Detail</a> |
-				<a href="">Edit</a>
-				<a href="">Delete</a>
+				<a href="{{ route('job.edit', $jobs[$i]['id']) }}">Edit</a>
+				<a href="{{ route('job.delete', $jobs[$i]['id']) }}">Delete</a>
 			</td>
 
 			</tr>
