@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\loginController;
+use App\Http\Controllers\logoutController;
+use App\Http\Controllers\homeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/login', [loginController::class, 'index'])->name('login.index');
+Route::post('/login', [loginController::class, 'verify']);
+Route::get('/logout', [logoutController::class, 'index'])->name('logout.index');
+Route::get('/home', [homeController::class, 'index'])->name('home.index');
