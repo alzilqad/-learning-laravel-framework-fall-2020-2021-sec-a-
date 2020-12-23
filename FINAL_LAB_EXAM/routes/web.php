@@ -42,3 +42,5 @@ Route::get('/joblist',  [homeController::class, 'joblist'])->name('job.joblist')
 Route::post('/joblist',  [homeController::class, 'jobsearch'])->name('job.search');
 Route::get('/job/{id}',  [homeController::class, 'jobdetail'])->name('job.detail');
 
+Route::get('/jobcreate',  [homeController::class, 'jobcreate'])->name('job.jobcreate');
+Route::post('/jobcreate',  [homeController::class, 'jobverifyCreate']);

@@ -123,4 +123,33 @@ class homeController extends Controller
                         ->get();
         return view('job.joblist', compact('jobs'));
     }
+    
+
+    public function jobcreate()
+    {
+        return view('job.create');
+    }
+
+    public function jobverifyCreate(Request $req)
+    {
+        $req->validate([
+            'jobTitle' => 'required',
+            'companyName' => 'required',
+            'jobLocation' => 'required',
+            'salary' => 'required',
+        ]);
+
+        $job = new Job();
+
+        $job->jobTitle = $req->jobTitle;
+        $job->companyName = $req->companyName;
+        $job->jobLocation = $req->jobLocation;
+        $job->salary = $req->salary;
+
+        if ($job->save()) {
+            return redirect()->route('job.joblist');
+        } else {
+            return back();
+        }
+    }
 }
